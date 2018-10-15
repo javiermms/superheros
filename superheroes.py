@@ -34,7 +34,7 @@ class Hero:
 	def add_armor(self, armor):
 	# Append ability to self.abilities
 		self.armors.append(armor)
-	def add_we(self, weapon):
+	def add_weapons(self, weapon):
 	# Append ability to self.abilities
 		self.weapons.append(weapon)
 
@@ -79,11 +79,12 @@ class Hero:
 
 		If the hero dies update number of deaths.
 		"""
+	
 		self.health -= damage_amt
 		
 		if self.health <= 0:
 			self.deaths += 1
-		
+
 
 	def add_kill(self, kills):
 		"""
@@ -169,9 +170,6 @@ class Team:
 
 		for heros in self.heroes:
 			heros.add_kill(kills)
-
-		for hero in other_team.heroes:
-			hero.deaths = kills
 
 
 	def defend(self, damage_amt):
@@ -281,10 +279,10 @@ class Arena:
 
 		while team_one:
 			self.team_one.add_hero(Hero(input("Create A Name for a New Hero: \n")))
-			self.team_one.heroes[index].add_ability(Ability(input("Name your Heros ability: "), input("How powerful? 0(meh)- 600(crazy powerful: \n")))
-			self.team_one.heroes[index].add_armor(Armor(input("Name your new armor:"), input("How strong is it? 0(meh)- 200(crazy strong: \n")))
+			self.team_one.heroes[index].add_ability(Ability(input("Name your Heros ability: "), input("How powerful? 200(meh)- 600(crazy powerful): \n")))
+			self.team_one.heroes[index].add_armor(Armor(input("Name your new armor:"), input("How strong is it? 50(meh)- 200(crazy strong): \n")))
 
-			end = input("To add more here type \"NEW\" else type any on any key and press enter: \n")
+			end = input("To add more heros type \"NEW\" else type any key and press enter: \n")
 
 			if end == "NEW":
 				team_one = True
@@ -306,10 +304,10 @@ class Arena:
 
 		while team_two:
 			self.team_two.add_hero(Hero(input("Create A Name for a New Hero: \n")))
-			self.team_two.heroes[index].add_ability(Ability(input("Name your Heros ability: "), input("How powerful? 0(meh)- 600(crazy powerful: \n")))
-			self.team_two.heroes[index].add_armor(Armor(input("Name your new armor: "), input("How strong is it? 0(meh)- 200(crazy strong: \n")))
+			self.team_two.heroes[index].add_ability(Ability(input("Name your Heros ability: "), input("How powerful? 200(meh)- 600(crazy powerful): \n")))
+			self.team_two.heroes[index].add_armor(Armor(input("Name your new armor: "), input("How strong is it? 50(meh)- 200(crazy strong): \n")))
 
-			end = input("To add more here type \"NEW\" else type any on any key and press enter: \n")
+			end = input("To add more heros type \"NEW\" else type any key and press enter: \n")
 
 			if end == "NEW":
 				team_two = True
